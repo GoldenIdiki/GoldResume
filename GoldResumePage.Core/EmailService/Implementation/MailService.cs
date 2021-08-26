@@ -25,7 +25,7 @@ namespace GoldResumePage.EmailService.Implementation
         {
             MailMessage message = new MailMessage();
             message.From = new MailAddress(_mailSettings.Mail);
-            message.To.Add("golden.idiki@gmail.com");
+            message.To.Add("Recipient Email");
             message.Subject = mailRequest.Subject;
             message.IsBodyHtml = true;
             message.Body = mailRequest.Body;

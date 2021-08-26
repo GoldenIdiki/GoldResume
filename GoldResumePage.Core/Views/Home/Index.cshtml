@@ -31,6 +31,10 @@
        
         <section class="resume-section" id="about">
             <div class="resume-section-content">
+                <div style="max-width: 150px; max-height:150px" class="mx-auto d-lg-none mt-0">
+                    <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="~/image/Golden_Passport.jpg" style="max-width: 100%; max-height:100%" />
+                </div>
+
                 <h1 class="mb-0">
                     Golden
                     <span class="text-primary">Idikibiebuma</span>
@@ -137,22 +141,19 @@
             </div>
         </section>
         <hr class="m-0" />
-        <!-- Awards-->
+        <!-- Contact Me-->
         <section class="resume-section" id="contactme">
             <div class="resume-section-content">
                 <h2 class="mb-5">Contact Me</h2>
                 <div class="row justify-content-lg-start">
                     <div class="col-lg-8 col-xl-7">
-                        <!-- * * * * * * * * * * * * * * *-->
-                        <!-- * * SB Forms Contact Form * *-->
-                        <!-- * * * * * * * * * * * * * * *-->
-                        <!-- This form is pre-integrated with SB Forms.-->
-                        <!-- To make this form functional, sign up at-->
-                        <!-- https://startbootstrap.com/solution/contact-forms-->
-                        <!-- to get an API token!-->
-                        <form method="post" asp-action="Index">
+                        
+                        <div class="text-success font-weight-bold">@TempData["Success"]</div>
+
+                        <form method="post" asp-action="Index" id="formarea">
                             <div class="text-danger">@ViewBag.Message</div>
                             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
                             <!-- Name input-->
                             <div class="form-floating mb-3">
                                 <div>
@@ -160,7 +161,6 @@
                                 </div>
                                 <input class="form-control" asp-for="FullName" type="text" placeholder="Enter your name..." />
                                 <span asp-validation-for="FullName" class="text-danger"></span>
-                                @*<div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>*@
                             </div>
                             <!-- Email address input-->
                             <div class="form-floating mb-3">
@@ -169,8 +169,6 @@
                                 </div>
                                 <input class="form-control" asp-for="Email" type="email" placeholder="name@example.com" />
                                 <span asp-validation-for="Email" class="text-danger"></span>
-                                @*<div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
-            <*@<!--div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>-->
                             </div>
                             <!-- Phone number input-->
                             <div class="form-floating mb-3">
@@ -191,12 +189,11 @@
 
                             <!-- Submit Button-->
                             <button class="btn btn-primary btn-xl" type="submit">Send</button>
-                            <div class="text-success">@TempData["Success"]</div>
                         </form>
                         @*server side validation*@
                         @section Scripts{
                             @{
-                                                <partial name="_ValidationScriptsPartial" /> }
+                                <partial name="_ValidationScriptsPartial" /> }
                         }
                     </div>
                 </div>

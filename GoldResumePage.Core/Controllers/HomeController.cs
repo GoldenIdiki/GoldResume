@@ -45,14 +45,14 @@ namespace GoldResumePage.Core.Controllers
             { 
                 ToEmail = "golden.idiki@gmail.com",
                 Subject = $"{ model.FullName } Contacted You",
-                Body = $"Email : {model.Email}\nPhone Number : {model.PhoneNumber}\n{model.Message}"
+                Body = $"Email : {model.Email}<br><br>Phone Number : {model.PhoneNumber}<br><br>{model.Message}"
             };
             _sendEmail.Send(mailRequest);
 
             _appDbContext.ContactMeTbl.Add(model);
             await _appDbContext.SaveChangesAsync();
-            TempData["Success"] = "Thank you for contacting me. I will get in touch with you";
-            return RedirectToAction("Index");
+            TempData["Success"] = "THANK YOU FOR CONTACTING ME. I WILL GET IN TOUCH WITH YOU SOON";
+            return RedirectToAction("Index", "Home", "contactme");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
